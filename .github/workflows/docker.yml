@@ -102,7 +102,7 @@ jobs:
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
 
-          for _this_tag in _push_tags; do
+          for _this_tag in ${_push_tags}; do
             echo "INFO: Tagging and pushing ${_this_tag}."
             docker tag image ${_this_tag}
             docker push ${_this_tag}
@@ -144,7 +144,7 @@ jobs:
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
 
-          for _this_tag in _push_tags; do
+          for _this_tag in ${_push_tags}; do
             echo "INFO: Tagging and pushing ${_this_tag}."
             docker tag image ${_this_tag}
             docker push ${_this_tag}
