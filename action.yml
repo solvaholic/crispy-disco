@@ -1,0 +1,24 @@
+# action.yml
+# https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions
+name: 'crispy-disco'
+description: 'Run github/octodns to deploy your DNS config to any cloud.'
+inputs:
+  config_path:
+    description: 'Path, relative to your repository root, of the config file you would like octodns to use.'
+    required: true
+    default: 'public.yaml'
+  doit:
+    description: 'Really do it? Set "--doit" to do it; Any other string to not do it.'
+    required: false
+    default: ''
+
+runs:
+  using: 'docker'
+  image: 'docker://solvaholic/crispy-disco:2.0.0'
+  args:
+    - ${{ inputs.config_path }}
+    - ${{ inputs.doit }}
+
+branding:
+  icon: 'list'
+  color: 'purple'
