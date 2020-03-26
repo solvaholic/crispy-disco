@@ -14,7 +14,7 @@ cd "$(git rev-parse --show-toplevel)" || return
 . ./.config
 
 echo "=== Shellcheck ==="
-shellcheck -x .config script/* test/*
+shellcheck -x .config script/* test/* entrypoint.sh
 
 echo "=== yamllint ==="
 yamllint ./*.yml .github/workflows/*.yml
