@@ -4,7 +4,7 @@ on:
   push:
     # Only run when one of these files change.
     paths:
-      - Dockerfile
+      - 'Dockerfile*'
       - entrypoint.sh
       - .github/workflows/docker.yml
 
@@ -20,7 +20,7 @@ on:
   # Run tests for any pull requests.
   pull_request:
     paths:
-      - Dockerfile
+      - 'Dockerfile*'
       - entrypoint.sh
       - .github/workflows/docker.yml
     branches:
@@ -115,7 +115,7 @@ jobs:
 
       - name: Push image to Docker hub
         run: |
-          IMAGE_ID=solvaholic/$IMAGE_NAME
+          IMAGE_ID=${{ github.actor }}/$IMAGE_NAME
 
           # Build image tag strings to push to Docker hub.
           _push_tags=""
